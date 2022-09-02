@@ -102,8 +102,8 @@ function generatePassword() {
   }
 
   for (var index = 0; index < options.length; index++) {
-    var possibleCharacters = getRandom(possibleCharacters);
-    results.push(possibleCharacters);
+    var possibleCharacter = getRandom(possibleCharacters);
+    results.push(possibleCharacter);
   }
 
   for (var index = 0; index < guaranteedCharacters.length; index++) {
