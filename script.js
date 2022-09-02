@@ -13,11 +13,71 @@ var upperCaseCharacters = ["A","B","C","D","E","F","G","H","I",
                            "J","K","L","M","N","O","P","Q","R",
                            "S","T","U","V","W","X","Y","Z"]
 
+function getPasswordOptions () {
+  var length = parseInt(prompt("How many characters would you like your password to contain?"), 10);
+
+  if (Number.isNaN(length)) {
+    alert("Password length must be provided as a number");
+    return null;
+  }
+
+  if (length < 8) {
+    alert("Password length must be at least 8 characters");
+    return null;
+  }
+
+  if(length > 128) {
+    alert("Password length must be less than 129 characters");
+    return null;
+  }
+
+  var hasspecialCharacters = confirm(
+    "Click OK to confirm including special characters"
+  )
+  var hasnumericCharacters = confirm(
+    "Click OK to confirm including number characters"
+  )
+  var haslowerCaseCharacters = confirm(
+    "Click OK to confirm including lowercase characters"
+  )
+  var hasupperCaseCharacters = confirm(
+    "Click OK to confirm including uppercase characters"
+  )
+
+  if (hasspecialCharacters === false && hasnumericCharacters === false 
+    && haslowerCaseCharacters === false && hasupperCaseCharacters === false) {
+    alert("Must select at least one character type");
+    return null;
+  }
+
+  var passwordOptions = {
+    length: length,
+    hasspecialCharacters: hasspecialCharacters,
+    hasnumericCharacters: hasnumericCharacters,
+    haslowerCaseCharacters: haslowerCaseCharacters,
+    hasupperCaseCharacters: hasupperCaseCharacters
+  }
+
+  return passwordOptions;
+
+}
+
+function getRandom(arr) {
+  var randomIndex = Math.floor(Math.random() * arr.length);
+  var randomElement = arr[randomIndex];
+  return randomElement;
+}
+
+// Generate Function
+function generatePassword() {
+  // var options = getPasswordOptions();
+  // var results = []
+}
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Generate Function
 
 // Write password to the #password input
 function writePassword() {
