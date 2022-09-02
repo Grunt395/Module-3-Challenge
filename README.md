@@ -1,11 +1,10 @@
 # Module-3-Challenge
 JavaScript Challenge: Password Generator
 
-
-
+This is a Javascript challenge about creating a random password generator that meets specific criteria. The password should be between 8 and 128 characters, and should have the option to include lowercase letters, uppercase letters, numbers, and special symbols. The user should be asked through several prompts which characters they would like to include in their randomly generated password.
 
 Screenshots of the application can be found in the Screenshots folder in the repository.
-Deployed application: 
+Deployed application: https://grunt395.github.io/Module-3-Challenge/
 
 References:
 Used Drew's Module 3 Challenge Speedrun video for reference:
