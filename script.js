@@ -70,8 +70,48 @@ function getRandom(arr) {
 
 // Generate Function
 function generatePassword() {
-  // var options = getPasswordOptions();
-  // var results = []
+  var options = getPasswordOptions();
+  var results = []
+
+  var possibleCharacters = [];
+
+  var guaranteedCharacters = [];
+
+  if (!options) {
+    return null;
+  }
+
+  if (options.hasspecialCharacters) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters)
+    guaranteedCharacters.push(getRandom(specialCharacters));
+  }
+  
+  if (options.hasnumericCharacters) {
+    possibleCharacters = possibleCharacters.concat(numericCharacters)
+    guaranteedCharacters.push(getRandom(numericCharacters));
+  }
+
+  if (options.haslowerCaseCharacters) {
+    possibleCharacters = possibleCharacters.concat(lowerCaseCharacters)
+    guaranteedCharacters.push(getRandom(lowerCaseCharacters));
+  }
+  
+  if (options.hasupperCaseCharacters) {
+    possibleCharacters = possibleCharacters.concat(upperCaseCharacters)
+    guaranteedCharacters.push(getRandom(upperCaseCharacters));
+  }
+
+  for (var index = 0; index < options.length; index++) {
+    var possibleCharacters = getRandom(possibleCharacters);
+    results.push(possibleCharacters);
+  }
+
+  for (var index = 0; index < guaranteedCharacters.length; index++) {
+    results[index] = guaranteedCharacters[index];
+  }
+
+  return results.join("");
+
 }
 
 
